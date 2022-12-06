@@ -1,15 +1,17 @@
 specVersion: 0.34.0
 name: hello-func-typescript-plr
 runtime: typescript
-registry: ""
-image: ""
+registry: image-registry.openshift-image-registry.svc:5000/viraj
+image: image-registry.openshift-image-registry.svc:5000/viraj/hello-func-typescript-plr:latest
 imageDigest: ""
 created: 2022-12-06T16:40:18.448921553+05:30
 invocation:
   format: http
 build:
+  git:
+    url: https://github.com/vikram-raj/hello-func-typescript-plr
   buildpacks: []
-  builder: ""
+  builder: s2i
   buildEnvs:
   - name: BP_NODE_RUN_SCRIPTS
     value: build
@@ -17,7 +19,7 @@ run:
   volumes: []
   envs: []
 deploy:
-  namespace: ""
+  namespace: viraj
   annotations: {}
   options: {}
   labels: []
